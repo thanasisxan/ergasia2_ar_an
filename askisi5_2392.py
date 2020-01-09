@@ -8,5 +8,5 @@ y_sin_points = [0.371662455660328, 0.690079011482112, 0.984807753012208, 0.45822
                 -0.881453363447582, -0.429794912089172, -0.189251244360411]
 
 
-def polyonimiki_prossegisi(x_points, y_points):
+def polyonimiki_prosegisi(x_points, y_points):
     return x_points * y_points
