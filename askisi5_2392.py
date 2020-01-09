@@ -12,3 +12,4 @@ y_sin_points = [0.371662455660328, 0.690079011482112, 0.984807753012208, 0.45822
 
 def polyonimiki_prossegisi(x_points, y_points):
     return x_points * y_points
+
