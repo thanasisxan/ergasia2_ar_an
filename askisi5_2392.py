@@ -21,7 +21,7 @@ def polyonimiki_prosegisi_newton(x_points, y_points):
     # πλήθος των σημείων
     assert (len(x_points) == len(y_points)), "Το πλήθος των σημείων πρέπει να είναι ίδιο."
     k = len(x_points)
-    # Το πολυώνυμο x (1x+0)
+    # Το πολυώνυμο 1x+0
     x = numpy.poly1d([1, 0])
     # Διαιρεμένες διαφορές υπολογισμένες στον πίνακα Dij
     Dij = coef(x_points, y_points)
