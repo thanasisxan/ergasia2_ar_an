@@ -51,6 +51,10 @@ def coef(x, y):
     return numpy.array(a)
 
 
-print(polyonimiki_prosegisi_newton(x_sin_points, y_sin_points)(1))
-print(sin(1))
-
+point = 2
+interp_result = polyonimiki_prosegisi_newton(x_sin_points, y_sin_points)(point)
+print(interp_result)
+result = sin(point)
+print(result)
+sfalma = abs(interp_result - result)
+print("Σφάλμα προσέγγισης:", sfalma)
