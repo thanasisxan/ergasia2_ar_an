@@ -2,6 +2,7 @@ import numpy
 import matplotlib.pyplot as plt
 
 sin = numpy.sin
+pi = numpy.pi
 
 # Τα σημεία που επέλεξα από την συναρτηση του ημιτόνου
 x_sin_points = [0.380799109526036, 0.761598219052071, 1.39626340159546, 2.66559376668225,
@@ -49,10 +50,17 @@ def coef(x, y):
     return numpy.array(a)
 
 
-point = 2
-interp_result = polyonimiki_prosegisi_newton(x_sin_points, y_sin_points)(point)
-print(interp_result)
-result = sin(point)
-print(result)
-sfalma = abs(interp_result - result)
-print("Σφάλμα προσέγγισης:", sfalma)
+polyonimo_newton = polyonimiki_prosegisi_newton(x_sin_points, y_sin_points)
+points = numpy.linspace(-pi, pi, 200)
+sum_sfalma = 0
+for point in points:
+    interp_result = polyonimo_newton(point)
+    # print(interp_result)
+    result = sin(point)
+    # print(result)
+    sfalma = abs(interp_result - result)
+    # print("Σφάλμα προσέγγισης:", sfalma)
+    sum_sfalma = sum_sfalma + sfalma
+
+avg_sfalma = sum_sfalma / len(points)
+print("Μέσο σφάλμα:", avg_sfalma)
