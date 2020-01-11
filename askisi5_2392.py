@@ -1,5 +1,6 @@
 import numpy
 import matplotlib.pyplot as plt
+import scipy
 
 sin = numpy.sin
 pi = numpy.pi
@@ -17,7 +18,8 @@ y_sin_points = [sin(i) for i in x_sin_points]
 # Η μορφη της επιστρεφόμενης μεταβλητής είναι: numpy.poly1d
 # όπου αποτελεί δομή δεδομένων που προσομοιάζει τα πολυώνυμα
 def polyonimiki_prosegisi_newton(x_points, y_points):
-    assert (len(x_points) == len(y_points)), "Το πλήθος των σημείων πρέπει να είναι ίδιο."
+    assert (len(x_points) == len(y_points)
+            ), "Το πλήθος των σημείων πρέπει να είναι ίδιο."
 
     # πλήθος των σημείων k
     n = len(x_points)
@@ -51,6 +53,7 @@ def coef(x, y):
 
 
 polyonimo_newton = polyonimiki_prosegisi_newton(x_sin_points, y_sin_points)
+print(polyonimo_newton)
 points = numpy.linspace(-pi, pi, 200)
 sum_sfalma = 0
 for point in points:
@@ -64,3 +67,4 @@ for point in points:
 
 avg_sfalma = sum_sfalma / len(points)
 print("Μέσο σφάλμα:", avg_sfalma)
+
