@@ -53,7 +53,7 @@ def coef(x, y):
 
 
 polyonimo_newton = polyonimiki_prosegisi_newton(x_sin_points, y_sin_points)
-print(polyonimo_newton)
+# print(polyonimo_newton)
 points = numpy.linspace(-pi, pi, 200)
 sum_sfalma = 0
 for point in points:
@@ -69,3 +69,4 @@ avg_sfalma = sum_sfalma / len(points)
 
 
 print("Μέσο σφάλμα:", avg_sfalma)
+
