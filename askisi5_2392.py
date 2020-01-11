@@ -66,5 +66,6 @@ for point in points:
     sum_sfalma = sum_sfalma + sfalma
 
 avg_sfalma = sum_sfalma / len(points)
-print("Μέσο σφάλμα:", avg_sfalma)
 
+
+print("Μέσο σφάλμα:", avg_sfalma)
