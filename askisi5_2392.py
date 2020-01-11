@@ -70,3 +70,4 @@ avg_sfalma = sum_sfalma / len(points)
 
 print("Μέσο σφάλμα:", avg_sfalma)
 
+
