@@ -69,9 +69,11 @@ def methodos_elaxistwn_tetragwnwn(x_points, y_points):
         sum_arith += (x_points[i] - x_meso)*(y_points[i] - y_meso)
         # Δημιουργούμε το άθροισμα του παρονομαστή
         sum_paron += (x_points[i] - x_meso)**2
+
     a = sum_arith / sum_paron
     b = y_meso - a*x_meso
     eutheia_prοseggisis = numpy.poly1d([a, b])
+
     return eutheia_prοseggisis
 
 
@@ -91,10 +93,10 @@ elax_tetr_eutheia = methodos_elaxistwn_tetragwnwn(
 # print(z)
 
 
-# Υπολογισμός του σφάλματος για 200 σημεια μεταξύ -π και π
 sum_sfalma_newton = 0
 sum_sfalma_leastsq = 0
 for point in x_test_points:
+    # Υπολογισμός του σφάλματος για 200 σημεια μεταξύ -π και π
     interp_newton = polyonimo_newton(point)
     interp_leastsq = elax_tetr_eutheia(point)
     result = sin(point)
