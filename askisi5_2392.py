@@ -97,10 +97,8 @@ sum_sfalma_leastsq = 0
 for point in x_test_points:
     interp_newton = polyonimo_newton(point)
     interp_leastsq = elax_tetr_eutheia(point)
-    # print(interp_newton)
-    # print(interp_leastsq)
     result = sin(point)
-    # print(result)
+
     sfalma_newton = abs(interp_newton - result)
     sfalma_leastsq = (interp_leastsq - result)**2
 
