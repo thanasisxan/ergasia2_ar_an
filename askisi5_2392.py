@@ -1,6 +1,6 @@
 import numpy
 import matplotlib.pyplot as plt
-import scipy
+import pandas as pd
 
 sin = numpy.sin
 pi = numpy.pi
@@ -39,6 +39,7 @@ def polyonimiki_prosegisi_newton(x_points, y_points):
     return N
 
 
+# συνάρτηση για τον υπολογισμό των συντελεστών α
 def coef(x, y):
     n = len(x)
     a = []
@@ -54,6 +55,8 @@ def coef(x, y):
 
 polyonimo_newton = polyonimiki_prosegisi_newton(x_sin_points, y_sin_points)
 # print(polyonimo_newton)
+# print(polyonimo_newton(pi/2))
+# print(sin(pi/2))
 points = numpy.linspace(-pi, pi, 200)
 sum_sfalma = 0
 for point in points:
@@ -68,6 +71,40 @@ for point in points:
 avg_sfalma = sum_sfalma / len(points)
 
 
-print("Μέσο σφάλμα:", avg_sfalma)
+print("Μέσο σφάλμα πολυωνυμικής προσσέγισης Newton:", avg_sfalma)
 
 
+plt.rcParams['figure.figsize'] = (12.0, 9.0)
+
+# Preprocessing Input data
+# data = pd.read_csv('data.csv')
+# data = [[i, sin(i)] for i in x_sin_points]
+
+X = x_sin_points
+Y = y_sin_points
+
+# Building the model
+X_mean = numpy.mean(X)
+Y_mean = numpy.mean(Y)
+
+num = 0
+den = 0
+for i in range(len(X)):
+    num += (X[i] - X_mean)*(Y[i] - Y_mean)
+    den += (X[i] - X_mean)**2
+m = num / den
+c = Y_mean - m*X_mean
+
+print(m, c)
+
+Y_pred = []
+# Making predictions
+for i in range(len(X)):
+    Y_pred.append(m*X[i]+c)
+# Y_pred = m*X + c
+
+plt.plot(X, Y)  # actual
+plt.plot(X, Y_pred, color='red')
+# plt.plot([min(X), max(X)], [min(Y_pred), max(Y_pred)],
+        #  color='red')  # predicted
+plt.show()
