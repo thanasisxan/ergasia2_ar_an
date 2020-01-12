@@ -1,6 +1,5 @@
 import numpy
 import matplotlib.pyplot as plt
-import pandas as pd
 
 sin = numpy.sin
 pi = numpy.pi
@@ -106,5 +105,5 @@ for i in range(len(X)):
 plt.plot(X, Y)  # actual
 plt.plot(X, Y_pred, color='red')
 # plt.plot([min(X), max(X)], [min(Y_pred), max(Y_pred)],
-        #  color='red')  # predicted
+#  color='red')  # predicted
 plt.show()
