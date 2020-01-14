@@ -1,5 +1,4 @@
 import numpy
-import matplotlib.pyplot as plt
 from pylab import *
 
 sin = numpy.sin
@@ -81,19 +80,9 @@ def methodos_elaxistwn_tetragwnwn(x_points, y_points):
 
 polyonimo_newton = polyonimiki_prosegisi_newton(
     x_my_sin_points, y_my_sin_points)
-# print(polyonimo_newton)
-# print(polyonimo_newton(pi/2))
-# print(sin(pi/2))
-
 
 elax_tetr_eutheia = methodos_elaxistwn_tetragwnwn(
     x_my_sin_points, y_my_sin_points)
-
-# z = numpy.polyfit(x_my_sin_points, y_my_sin_points, 1)
-# print(a, b)
-# print(elax_tetr_eutheia)
-# print(z)
-
 
 sum_sfalma_newton = 0
 sum_sfalma_leastsq = 0
