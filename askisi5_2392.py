@@ -1,5 +1,6 @@
 import numpy
 import matplotlib.pyplot as plt
+from pylab import *
 
 sin = numpy.sin
 pi = numpy.pi
@@ -96,16 +97,18 @@ elax_tetr_eutheia = methodos_elaxistwn_tetragwnwn(
 
 sum_sfalma_newton = 0
 sum_sfalma_leastsq = 0
-y_newton = []
-y_leastsq = []
+y_sfalma_newton = []
+y_sfalma_leastsq = []
 for point in x_test_points:
     # Υπολογισμός του σφάλματος για 200 σημεια μεταξύ -π και π
     interp_newton = polyonimo_newton(point)
     interp_leastsq = elax_tetr_eutheia(point)
-    result = sin(point)
+    correct_result = sin(point)
 
-    sfalma_newton = abs(interp_newton - result)
-    sfalma_leastsq = (interp_leastsq - result) ** 2
+    sfalma_newton = abs(interp_newton - correct_result)
+    sfalma_leastsq = (interp_leastsq - correct_result) ** 2
+    y_sfalma_newton.append(sfalma_newton)
+    y_sfalma_leastsq.append(sfalma_leastsq)
 
     sum_sfalma_newton = sum_sfalma_newton + sfalma_newton
     sum_sfalma_leastsq = sum_sfalma_leastsq + sfalma_leastsq
@@ -117,10 +120,16 @@ print("Μέσο σφάλμα πολυωνυμικής προσσέγισης New
 print("Σφάλμα προσσέγισης με την μέθοδο των ελάχιστων τετραγώνων:",
       final_sfalma_leastsq)
 
-# print(Y_pred)
+subplot(3, 1, 1)
+scatter(x_test_points, y_test_points)
+title('Τα σημεία που θέλουμε να προσσεγγίσουμε')
 
-# plt.scatter(x_test_points, y_test_points)  # actual
-# plt.scatter(x_test_points, Y_pred, color='red')
-# # plt.plot([min(X), max(X)], [min(Y_pred), max(Y_pred)],
-# #  color='red')  # predicted
-# plt.show()
+subplot(3, 1, 2)
+scatter(x_test_points, y_sfalma_newton, color='green')
+title('Σφάλμα πολυωνυμικής προσσέγγισης Newton')
+
+subplot(3, 1, 3)
+scatter(x_test_points, y_sfalma_leastsq, color='red')
+title('Σφάλμα προσσέγγισης με την μέθοδο ελάχιστων τετραγώνων')
+
+show()
