@@ -66,12 +66,12 @@ def methodos_elaxistwn_tetragwnwn(x_points, y_points):
     sum_paron = 0
     for i in range(len(x_points)):
         # Δημιουργούμε το άθροισμα του αριθμητή
-        sum_arith += (x_points[i] - x_meso)*(y_points[i] - y_meso)
+        sum_arith += (x_points[i] - x_meso) * (y_points[i] - y_meso)
         # Δημιουργούμε το άθροισμα του παρονομαστή
-        sum_paron += (x_points[i] - x_meso)**2
+        sum_paron += (x_points[i] - x_meso) ** 2
 
     a = sum_arith / sum_paron
-    b = y_meso - a*x_meso
+    b = y_meso - a * x_meso
     eutheia_prοseggisis = numpy.poly1d([a, b])
 
     return eutheia_prοseggisis
@@ -95,6 +95,8 @@ elax_tetr_eutheia = methodos_elaxistwn_tetragwnwn(
 
 sum_sfalma_newton = 0
 sum_sfalma_leastsq = 0
+y_newton = []
+y_leastsq = []
 for point in x_test_points:
     # Υπολογισμός του σφάλματος για 200 σημεια μεταξύ -π και π
     interp_newton = polyonimo_newton(point)
@@ -102,7 +104,7 @@ for point in x_test_points:
     result = sin(point)
 
     sfalma_newton = abs(interp_newton - result)
-    sfalma_leastsq = (interp_leastsq - result)**2
+    sfalma_leastsq = (interp_leastsq - result) ** 2
 
     sum_sfalma_newton = sum_sfalma_newton + sfalma_newton
     sum_sfalma_leastsq = sum_sfalma_leastsq + sfalma_leastsq
@@ -113,7 +115,6 @@ final_sfalma_leastsq = numpy.sqrt(sum_sfalma_leastsq)
 print("Μέσο σφάλμα πολυωνυμικής προσσέγισης Newton:", avg_sfalma_newton)
 print("Σφάλμα προσσέγισης με την μέθοδο των ελάχιστων τετραγώνων:",
       final_sfalma_leastsq)
-
 
 # print(Y_pred)
 
