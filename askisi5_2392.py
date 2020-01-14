@@ -72,9 +72,10 @@ def methodos_elaxistwn_tetragwnwn(x_points, y_points):
 
     a = sum_arith / sum_paron
     b = y_meso - a * x_meso
-    eutheia_prοseggisis = numpy.poly1d([a, b])
 
-    return eutheia_prοseggisis
+    eutheia_proseggisis = numpy.poly1d([a, b])
+
+    return eutheia_proseggisis
 
 
 polyonimo_newton = polyonimiki_prosegisi_newton(
