@@ -21,8 +21,6 @@ def polyonimiki_prosegisi_newton(x_points, y_points):
     # με την μέθοδο του Newton
     # Η μορφη της επιστρεφόμενης μεταβλητής είναι: numpy.poly1d
     # όπου αποτελεί δομή δεδομένων που προσομοιάζει τα πολυώνυμα
-    assert (len(x_points) == len(y_points)
-            ), "Το πλήθος των σημείων πρέπει να είναι ίδιο."
 
     # πλήθος των σημείων k
     n = len(x_points)
