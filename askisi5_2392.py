@@ -17,7 +17,7 @@ y_test_points = [sin(i) for i in x_test_points]
 
 
 def polyonimiki_prosegisi_newton(x_points, y_points):
-    # Επιστρέφει το πολυώνυμο(προσσέγγιση της συναρτησης) που περνάει απο τα σημέια που περνει σαν όρισμα
+    # Επιστρέφει το πολυώνυμο(προσσέγγιση της συναρτησης) που περνάει απο τα σημεία που περνει σαν όρισμα,
     # με την μέθοδο του Newton
     # Η μορφη της επιστρεφόμενης μεταβλητής είναι: numpy.poly1d
     # όπου αποτελεί δομή δεδομένων που προσομοιάζει τα πολυώνυμα
@@ -41,7 +41,7 @@ def polyonimiki_prosegisi_newton(x_points, y_points):
 
 
 def coef(x, y):
-    # συνάρτηση για τον υπολογισμό των συντελεστών α για την πολυωνυμική προσσέγιση Newton
+    # συνάρτηση για τον υπολογισμό των διαιρεμένων διαφορών για την πολυωνυμική προσσέγιση Newton
     n = len(x)
     a = []
     for i in range(n):
@@ -68,10 +68,10 @@ def methodos_elaxistwn_tetragwnwn(x_points, y_points):
         # Δημιουργούμε το άθροισμα του παρονομαστή
         sum_paron += (x_points[i] - x_meso) ** 2
 
-    a = sum_arith / sum_paron
-    b = y_meso - a * x_meso
+    b = sum_arith / sum_paron
+    a = y_meso - b * x_meso
 
-    eutheia_proseggisis = numpy.poly1d([a, b])
+    eutheia_proseggisis = numpy.poly1d([b, a])
 
     return eutheia_proseggisis
 
@@ -103,8 +103,8 @@ for point in x_test_points:
 avg_sfalma_newton = sum_sfalma_newton / len(x_test_points)
 final_sfalma_leastsq = numpy.sqrt(sum_sfalma_leastsq)
 
-print("Μέσο σφάλμα πολυωνυμικής προσσέγισης Newton:", avg_sfalma_newton)
-print("Σφάλμα προσσέγισης με την μέθοδο των ελάχιστων τετραγώνων:",
+print("Μέσο σφάλμα πολυωνυμικής προσέγισης Newton:", avg_sfalma_newton)
+print("Σφάλμα προσέγισης με την μέθοδο των ελάχιστων τετραγώνων:",
       final_sfalma_leastsq)
 
 subplot(3, 1, 1)
@@ -117,6 +117,6 @@ title('Σφάλμα πολυωνυμικής προσσέγγισης Newton')
 
 subplot(3, 1, 3)
 scatter(x_test_points, y_sfalma_leastsq, color='red')
-title('Σφάλμα προσσέγγισης με την μέθοδο ελάχιστων τετραγώνων')
+title('Σφάλμα προσέγγισης με την μέθοδο ελάχιστων τετραγώνων')
 
 show()
